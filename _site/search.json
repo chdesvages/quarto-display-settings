@@ -1,0 +1,9 @@
+[
+  {
+    "objectID": "index.html",
+    "href": "index.html",
+    "title": "Display settings toolbar for Quarto",
+    "section": "",
+    "text": "Display settings toolbar for Quarto\nThis is a setup for a display settings toolbar in Quarto, accessed via the menu at the top of the right margin. Source code is available on GitHub, as well as a demonstration page.\n\n\n\nA colourful image to demonstrate hue and sepia settings.\n\n\nHow it works:\n\n_theme/_accessibility_sidebar.qmd contains a raw HTML block to display the sliders and settings.\n_theme/accessibility.html contains the JavaScript to grab the slider values and use them to define the relevant CSS variables, in a &lt;script&gt; tag.\n_theme/styles.css sets the relevant CSS properties using these variables.\n_theme/atkinson.scss makes the Atkinson Hyperlegible font available as an option. Credit to druedin.\n\nThe display settings box is inserted as a margin-header, the JavaScript is in include-before-body, and the relevant CSS files are included in _quarto.yml as follows:\nproject:\n    type: website\n\nformat:\n    html:\n        theme: [cosmo, _theme/atkinson.scss]\n        css: _theme/styles.css\n        include-before-body:\n            file: _theme/accessibility.html\n        grid:\n          margin-width: 350px\n\nwebsite:\n    title: \"Display settings toolbar for Quarto\"\n    margin-header: _theme/_accessibility_sidebar.qmd"
+  }
+]
